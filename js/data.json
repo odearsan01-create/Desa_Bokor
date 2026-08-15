@@ -407,20 +407,6 @@
       "gmaps": ""
     },
     {
-      "id": "sd2",
-      "name": "SDN Bokor 02",
-      "person": "Sekolah Dasar Negeri 02 Bokor",
-      "lat": -8.0205,
-      "lng": 112.8183,
-      "type": "sekolah",
-      "subtype": "SD",
-      "icon": "📚",
-      "color": "#f57c00",
-      "bg": "#fff3e0",
-      "img": "",
-      "gmaps": ""
-    },
-    {
       "id": "masjid1",
       "name": "Masjid Al-Ikhlas",
       "person": "Masjid Jami' Desa Bokor",
