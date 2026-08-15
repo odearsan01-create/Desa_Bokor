@@ -397,6 +397,9 @@ const ADMIN_CRED_KEY = 'desa_bokor_admin_cred';
 const DEFAULT_ADMIN = { email: 'admin@desaborkor.id', password: 'bokor2024' };
 
 function getAdminCred() {
+  if (BOKOR_STATE && BOKOR_STATE.admin) {
+    return BOKOR_STATE.admin;
+  }
   try {
     const c = localStorage.getItem(ADMIN_CRED_KEY);
     return c ? JSON.parse(c) : DEFAULT_ADMIN;
@@ -405,6 +408,10 @@ function getAdminCred() {
 
 function saveAdminCred(email, password) {
   localStorage.setItem(ADMIN_CRED_KEY, JSON.stringify({ email, password }));
+  if (BOKOR_STATE) {
+    BOKOR_STATE.admin = { email, password };
+    saveState(BOKOR_STATE);
+  }
 }
 
 function isAdminLoggedIn() {
@@ -437,6 +444,10 @@ function loadState() {
           BOKOR_STATE.kontak.alamat = 'Jl. Raya Bokor No. 01, Desa Bokor, Kec. Tumpang, Kab. Malang';
         }
       }
+      // Migrate admin credentials if missing
+      if (!BOKOR_STATE.admin) {
+        BOKOR_STATE.admin = getAdminCred();
+      }
       // Migrate peta lumbung & pemakaman markers if missing
       if (BOKOR_STATE.peta && !BOKOR_STATE.peta.some(m => m.type === 'lumbung')) {
         const defaultLumbung = DEFAULT_STATE.peta.find(m => m.type === 'lumbung');
@@ -463,14 +474,9 @@ function loadState() {
         }
         if (BOKOR_STATE.pemerintahDesa.kades) {
           if (!BOKOR_STATE.pemerintahDesa.kades.img) BOKOR_STATE.pemerintahDesa.kades.img = '';
-          if (BOKOR_STATE.pemerintahDesa.kades.name.includes('Sujarwo')) BOKOR_STATE.pemerintahDesa.kades.name = DEFAULT_STATE.pemerintahDesa.kades.name;
         }
         if (BOKOR_STATE.pemerintahDesa.sekdes) {
           if (!BOKOR_STATE.pemerintahDesa.sekdes.img) BOKOR_STATE.pemerintahDesa.sekdes.img = '';
-          if (BOKOR_STATE.pemerintahDesa.sekdes.name.includes('Sriani')) BOKOR_STATE.pemerintahDesa.sekdes.name = DEFAULT_STATE.pemerintahDesa.sekdes.name;
-        }
-        if (BOKOR_STATE.pemerintahDesa.kadus && BOKOR_STATE.pemerintahDesa.kadus.some(k => (k.pos && k.pos.toLowerCase().includes('dusun')) || k.name === 'Mujiono')) {
-          BOKOR_STATE.pemerintahDesa.kadus = JSON.parse(JSON.stringify(DEFAULT_STATE.pemerintahDesa.kadus));
         }
         ['kaur', 'kasi', 'kadus'].forEach(type => {
           if (BOKOR_STATE.pemerintahDesa[type]) {
@@ -482,9 +488,11 @@ function loadState() {
       }
     } catch (e) {
       BOKOR_STATE = JSON.parse(JSON.stringify(DEFAULT_STATE));
+      BOKOR_STATE.admin = getAdminCred();
     }
   } else {
     BOKOR_STATE = JSON.parse(JSON.stringify(DEFAULT_STATE));
+    BOKOR_STATE.admin = getAdminCred();
     localStorage.setItem('desa_bokor_state', JSON.stringify(BOKOR_STATE));
   }
   return BOKOR_STATE;
@@ -493,11 +501,31 @@ function loadState() {
 function saveState(state) {
   BOKOR_STATE = state;
   localStorage.setItem('desa_bokor_state', JSON.stringify(state));
+
+  // Kirim state ke API serverless Vercel untuk disimpan di GitHub
+  fetch('/api/save-state', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(state)
+  })
+  .then(res => {
+    if (!res.ok) {
+      console.error('Gagal menyimpan state ke GitHub');
+    } else {
+      console.log('State berhasil disimpan ke GitHub');
+    }
+  })
+  .catch(err => {
+    console.error('Error saat menghubungi API save-state:', err);
+  });
 }
 
 function resetStateToDefault() {
   if (confirm('Apakah Anda yakin ingin mengembalikan semua data website ke pengaturan awal/default?')) {
     BOKOR_STATE = JSON.parse(JSON.stringify(DEFAULT_STATE));
+    BOKOR_STATE.admin = getAdminCred();
     saveState(BOKOR_STATE);
     showToast('✅ Berhasil direset ke default!');
     setTimeout(() => location.reload(), 1000);
@@ -505,7 +533,28 @@ function resetStateToDefault() {
 }
 
 // Initial Load
-loadState();
+async function initApp() {
+  try {
+    const res = await fetch('js/data.json?t=' + Date.now());
+    if (res.ok) {
+      const data = await res.json();
+      if (data && typeof data === 'object') {
+        localStorage.setItem('desa_bokor_state', JSON.stringify(data));
+      }
+    }
+  } catch (e) {
+    console.warn('Gagal memuat data dari server, menggunakan data lokal/default:', e);
+  }
+
+  // Load state
+  loadState();
+
+  // Render aplikasi
+  renderHeader();
+  renderFooter();
+  startWibClock();
+  handleRoute();
+}
 
 // =========================================
 // IMAGE FILE ENCODER & COMPRESSION
@@ -1580,15 +1629,20 @@ function renderPeta() {
         <div id="map-container">
           <div id="leaflet-map"></div>
           <!-- Legend -->
-          <div class="map-legend">
-            <div class="map-legend-title">🗺️ Legenda</div>
-            <div class="legend-item"><div class="legend-dot" style="background:#1265f0"></div>Perangkat Desa</div>
-            <div class="legend-item"><div class="legend-dot" style="background:#376200"></div>Kantor Desa</div>
-            <div class="legend-item"><div class="legend-dot" style="background:#d97706"></div>Lumbung Pangan</div>
-            <div class="legend-item"><div class="legend-dot" style="background:#f57c00"></div>Sekolah</div>
-            <div class="legend-item"><div class="legend-dot" style="background:#6a1b9a"></div>Tempat Ibadah</div>
-            <div class="legend-item"><div class="legend-dot" style="background:#c62828"></div>Kesehatan</div>
-            <div class="legend-item"><div class="legend-dot" style="background:#4b5563"></div>Pemakaman</div>
+          <div class="map-legend ${window.innerWidth <= 768 ? 'collapsed' : ''}" id="map-legend">
+            <div class="map-legend-header" onclick="toggleLegend(event)" style="display:flex; justify-content:space-between; align-items:center; cursor:pointer; user-select:none;">
+              <div class="map-legend-title" style="margin-bottom:0;">🗺️ Legenda</div>
+              <span class="legend-toggle-icon" style="font-size:10px; color:var(--gray-5); transition:transform 0.3s ease; display:inline-block;">▼</span>
+            </div>
+            <div class="map-legend-content" style="margin-top:12px; transition:opacity 0.2s ease;">
+              <div class="legend-item"><div class="legend-dot" style="background:#1265f0"></div>Perangkat Desa</div>
+              <div class="legend-item"><div class="legend-dot" style="background:#376200"></div>Kantor Desa</div>
+              <div class="legend-item"><div class="legend-dot" style="background:#d97706"></div>Lumbung Pangan</div>
+              <div class="legend-item"><div class="legend-dot" style="background:#f57c00"></div>Sekolah</div>
+              <div class="legend-item"><div class="legend-dot" style="background:#6a1b9a"></div>Tempat Ibadah</div>
+              <div class="legend-item"><div class="legend-dot" style="background:#c62828"></div>Kesehatan</div>
+              <div class="legend-item"><div class="legend-dot" style="background:#4b5563"></div>Pemakaman</div>
+            </div>
           </div>
         </div>
       </div>
@@ -1596,6 +1650,14 @@ function renderPeta() {
   `;
 
   setTimeout(initMap, 300);
+}
+
+function toggleLegend(event) {
+  if (event) event.stopPropagation();
+  const legend = document.getElementById('map-legend');
+  if (legend) {
+    legend.classList.toggle('collapsed');
+  }
 }
 
 function renderMarkerList(markers) {
@@ -3818,13 +3880,9 @@ function startWibClock() {
 // INITIALIZE APPLICATION
 // =========================================
 document.addEventListener('DOMContentLoaded', () => {
-  renderHeader();
-  renderFooter();
-  startWibClock();
-
+  initApp();
   window.addEventListener('hashchange', handleRoute);
   window.addEventListener('resize', () => {
     if (typeof drawOrgConnectors === 'function') drawOrgConnectors();
   });
-  handleRoute();
 });

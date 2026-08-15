@@ -1,0 +1,512 @@
+{
+  "logo": {
+    "img": "assets/images/logo.png",
+    "icon": "🌿",
+    "title": "Desa Bokor",
+    "subtitle": "Kec. Tumpang, Kab. Malang"
+  },
+  "hero": [
+    {
+      "img": "assets/images/hero1.webp",
+      "badge": "🌿 Selamat Datang",
+      "title": "Website Resmi<br><span>Desa Bokor</span>",
+      "subtitle": "Sumber informasi terpercaya tentang pemerintahan, potensi, dan layanan Desa Bokor, Kec. Tumpang, Kab. Malang.",
+      "cta1Text": "📋 Lihat Profil Desa",
+      "cta1Action": "navigate('profil')",
+      "cta2Text": "🗺️ Jelajahi Peta",
+      "cta2Action": "navigate('peta')"
+    },
+    {
+      "img": "assets/images/hero2.webp",
+      "badge": "👥 Komunitas",
+      "title": "Desa Bokor<br><span>Bersatu Maju</span>",
+      "subtitle": "Bersama membangun desa yang maju, sejahtera, dan berdaya saing dengan semangat gotong royong.",
+      "cta1Text": "🤝 Tentang Kami",
+      "cta1Action": "navigate('profil','visi-misi')",
+      "cta2Text": "📞 Hubungi Kami",
+      "cta2Action": "navigate('kontak')"
+    },
+    {
+      "img": "assets/images/hero3.webp",
+      "badge": "🌾 Alam & Budaya",
+      "title": "Keindahan<br><span>Desa Bokor</span>",
+      "subtitle": "Dikelilingi alam yang asri and kaya budaya, Desa Bokor menawarkan kehidupan yang harmonis dan damai.",
+      "cta1Text": "🗺️ Peta Digital",
+      "cta1Action": "navigate('peta')",
+      "cta2Text": "📋 Profil Desa",
+      "cta2Action": "navigate('profil')"
+    }
+  ],
+  "stats": {
+    "penduduk": "3.847",
+    "kk": "1.124",
+    "luas": "4,2 km²",
+    "dusunRwRt": "5 RW / 18 RT"
+  },
+  "quickAccess": {
+    "profilTitle": "Profil Desa",
+    "profilDesc": "Kenali lebih dekat Desa Bokor — visi misi, sejarah, dan struktur pemerintahan desa.",
+    "petaTitle": "Peta Digital",
+    "petaDesc": "Jelajahi peta interaktif lokasi kantor, sekolah, tempat ibadah, dan fasilitas desa lainnya.",
+    "kontakTitle": "Hubungi Kami",
+    "kontakDesc": "Sampaikan pertanyaan, saran, atau keluhan Anda kepada pemerintah Desa Bokor."
+  },
+  "welcome": {
+    "tag": "🌿 Sambutan Kepala Desa",
+    "title": "Membangun Desa Bokor yang Maju dan Sejahtera",
+    "text1": "Assalamu'alaikum Warahmatullahi Wabarakatuh. Dengan penuh rasa syukur kepada Allah SWT, kami menyambut kehadiran Anda di website resmi Pemerintah Desa Bokor.",
+    "text2": "Website ini hadir sebagai wujud komitmen kami dalam memberikan keterbukaan informasi publik kepada seluruh warga masyarakat Desa Bokor. Semoga website ini dapat menjadi media komunikasi dan informasi yang bermanfaat.",
+    "text3": "Mari bersama-sama kita wujudkan Desa Bokor yang maju, mandiri, dan sejahtera.",
+    "name": "Bpk. Sujarwo, S.Sos.",
+    "titleSub": "Kepala Desa Bokor",
+    "avatar": "👨‍💼",
+    "img": "assets/images/hero3.webp",
+    "badgeIcon": "🏆",
+    "badgeTitle": "Desa Aktif",
+    "badgeSub": "Kab. Malang 2024"
+  },
+  "visiMisi": {
+    "tag": "🎯 Arah Pembangunan",
+    "title": "Visi dan Misi Desa Bokor",
+    "desc": "Komitmen Pemerintah Desa Bokor dalam mewujudkan masyarakat yang sejahtera dan mandiri.",
+    "visi": "\"Terwujudnya Desa Bokor yang Maju, Mandiri, Berdaya Saing, dan Sejahtera Berlandaskan Nilai-nilai Keagamaan, Budaya, dan Kearifan Lokal.\"",
+    "misi": [
+      "Meningkatkan kualitas tata kelola pemerintahan desa yang transparan, akuntabel, dan partisipatif.",
+      "Meningkatkan kualitas sumber daya manusia melalui pendidikan, pelatihan, dan pemberdayaan masyarakat.",
+      "Mengembangkan potensi ekonomi lokal berbasis pertanian, UMKM, dan pariwisata desa.",
+      "Meningkatkan dan memelihara infrastruktur desa yang berkualitas dan merata.",
+      "Melestarikan nilai budaya, adat istiadat, dan kearifan lokal Desa Bokor."
+    ]
+  },
+  "nilaiUtama": [
+    {
+      "icon": "🤝",
+      "title": "Gotong Royong",
+      "desc": "Bekerja bersama untuk kepentingan bersama"
+    },
+    {
+      "icon": "⚖️",
+      "title": "Keadilan",
+      "desc": "Merata dan berkeadilan untuk semua warga"
+    },
+    {
+      "icon": "🌱",
+      "title": "Keberlanjutan",
+      "desc": "Membangun untuk generasi sekarang dan mendatang"
+    },
+    {
+      "icon": "🔍",
+      "title": "Transparansi",
+      "desc": "Keterbukaan informasi untuk masyarakat"
+    },
+    {
+      "icon": "💪",
+      "title": "Mandiri",
+      "desc": "Kemandirian desa dalam berbagai aspek"
+    }
+  ],
+  "pemerintahDesa": {
+    "bpd": {
+      "name": "Drs. H. M. Yasin",
+      "pos": "BPD",
+      "avatar": "bpd",
+      "img": ""
+    },
+    "kades": {
+      "name": "Arianto",
+      "pos": "Kepala Desa",
+      "avatar": "kades",
+      "img": ""
+    },
+    "sekdes": {
+      "name": "Bagus Hadi Wijaya",
+      "pos": "Sekretaris Desa",
+      "avatar": "sekdes",
+      "img": ""
+    },
+    "kaur": [
+      {
+        "id": "kaur-keu",
+        "name": "Dewi Rahayu, SE.",
+        "pos": "Kaur Keuangan",
+        "avatar": "kaur",
+        "img": ""
+      },
+      {
+        "id": "kaur-um",
+        "name": "Bambang Santoso",
+        "pos": "Kaur TU & Umum",
+        "avatar": "kaur",
+        "img": ""
+      },
+      {
+        "id": "kaur-ren",
+        "name": "Ahmad Rizki, S.IP.",
+        "pos": "Kaur Perencanaan",
+        "avatar": "kaur",
+        "img": ""
+      }
+    ],
+    "kasi": [
+      {
+        "id": "kasi-pem",
+        "name": "Hendra Wijaya",
+        "pos": "Kasi Pemerintahan",
+        "avatar": "kasi",
+        "img": ""
+      },
+      {
+        "id": "kasi-kesra",
+        "name": "Siti Nurjanah",
+        "pos": "Kasi Kesejahteraan",
+        "avatar": "kasi",
+        "img": ""
+      },
+      {
+        "id": "kasi-pel",
+        "name": "Agus Prasetyo",
+        "pos": "Kasi Pelayanan",
+        "avatar": "kasi",
+        "img": ""
+      }
+    ],
+    "kadus": [
+      {
+        "id": "kawil",
+        "name": "Novia Indrawati",
+        "pos": "Kepala Wilayah",
+        "avatar": "kadus",
+        "img": ""
+      }
+    ],
+    "rwList": [
+      {
+        "rw": "RW 01",
+        "leader": "Suparman"
+      },
+      {
+        "rw": "RW 02",
+        "leader": "Sutrisno"
+      },
+      {
+        "rw": "RW 03",
+        "leader": "Murniati"
+      },
+      {
+        "rw": "RW 04",
+        "leader": "Wahyono"
+      },
+      {
+        "rw": "RW 05",
+        "leader": "Slamet"
+      }
+    ],
+    "rtList": [
+      {
+        "rt": "RT 01 / RW 01",
+        "leader": "Kusnan"
+      },
+      {
+        "rt": "RT 02 / RW 01",
+        "leader": "Subari"
+      },
+      {
+        "rt": "RT 03 / RW 01",
+        "leader": "Ngatimin"
+      },
+      {
+        "rt": "RT 01 / RW 02",
+        "leader": "Sujono"
+      },
+      {
+        "rt": "RT 02 / RW 02",
+        "leader": "Wardi"
+      },
+      {
+        "rt": "RT 01 / RW 03",
+        "leader": "Karsiman"
+      },
+      {
+        "rt": "RT 02 / RW 03",
+        "leader": "Ponimin"
+      },
+      {
+        "rt": "RT 01 / RW 04",
+        "leader": "Mulyono"
+      },
+      {
+        "rt": "RT 02 / RW 04",
+        "leader": "Sutaji"
+      },
+      {
+        "rt": "RT 01 / RW 05",
+        "leader": "Supardi"
+      },
+      {
+        "rt": "RT 02 / RW 05",
+        "leader": "Sumarno"
+      }
+    ]
+  },
+  "kontak": {
+    "alamat": "Jl. Raya Bokor No. 01, Desa Bokor, Kec. Tumpang, Kab. Malang",
+    "telepon": "(0341) 787-XXXX",
+    "email": "desaborkor@malangkab.go.id",
+    "kecamatan": "Kecamatan Tumpang",
+    "kabupaten": "Kabupaten Malang",
+    "jamOperasional": {
+      "senin_jumat": "08.00 - 16.00 WIB",
+      "sabtu": "08.00 - 12.00 WIB",
+      "minggu": "Tutup"
+    },
+    "koordinatKantor": {
+      "lat": -8.0167,
+      "lng": 112.8167
+    },
+    "imgPeta": ""
+  },
+  "peta": [
+    {
+      "id": "kades",
+      "name": "Rumah Kepala Desa",
+      "person": "Bpk. Sujarwo, S.Sos.",
+      "lat": -8.0155,
+      "lng": 112.818,
+      "type": "perangkat",
+      "subtype": "Kepala Desa",
+      "icon": "🏠",
+      "color": "#1265f0",
+      "bg": "#e5f0ff",
+      "img": "assets/images/hero2.webp",
+      "gmaps": ""
+    },
+    {
+      "id": "sekdes",
+      "name": "Rumah Sekretaris Desa",
+      "person": "Ibu Sriani Wulandari, SE.",
+      "lat": -8.019,
+      "lng": 112.8145,
+      "type": "perangkat",
+      "subtype": "Sekretaris Desa",
+      "icon": "🏠",
+      "color": "#1265f0",
+      "bg": "#e5f0ff",
+      "img": "assets/images/hero2.webp",
+      "gmaps": ""
+    },
+    {
+      "id": "rt01",
+      "name": "Rumah Ketua RT 01",
+      "person": "Bpk. Ahmad Fauzi",
+      "lat": -8.014,
+      "lng": 112.8195,
+      "type": "perangkat",
+      "subtype": "Ketua RT",
+      "icon": "🏡",
+      "color": "#1265f0",
+      "bg": "#e5f0ff",
+      "img": "",
+      "gmaps": ""
+    },
+    {
+      "id": "rt02",
+      "name": "Rumah Ketua RT 02",
+      "person": "Bpk. Suwanto",
+      "lat": -8.0178,
+      "lng": 112.816,
+      "type": "perangkat",
+      "subtype": "Ketua RT",
+      "icon": "🏡",
+      "color": "#1265f0",
+      "bg": "#e5f0ff",
+      "img": "",
+      "gmaps": ""
+    },
+    {
+      "id": "rt03",
+      "name": "Rumah Ketua RT 03",
+      "person": "Ibu Mulyati",
+      "lat": -8.02,
+      "lng": 112.8188,
+      "type": "perangkat",
+      "subtype": "Ketua RT",
+      "icon": "🏡",
+      "color": "#1265f0",
+      "bg": "#e5f0ff",
+      "img": "",
+      "gmaps": ""
+    },
+    {
+      "id": "rw01",
+      "name": "Rumah Ketua RW 01",
+      "person": "Bpk. Suparman",
+      "lat": -8.0165,
+      "lng": 112.8135,
+      "type": "perangkat",
+      "subtype": "Ketua RW",
+      "icon": "🏘️",
+      "color": "#1265f0",
+      "bg": "#e5f0ff",
+      "img": "",
+      "gmaps": ""
+    },
+    {
+      "id": "rw02",
+      "name": "Rumah Ketua RW 02",
+      "person": "Bpk. Sutrisno",
+      "lat": -8.021,
+      "lng": 112.817,
+      "type": "perangkat",
+      "subtype": "Ketua RW",
+      "icon": "🏘️",
+      "color": "#1265f0",
+      "bg": "#e5f0ff",
+      "img": "",
+      "gmaps": ""
+    },
+    {
+      "id": "kantor_desa",
+      "name": "Kantor Desa Bokor",
+      "person": "Pemerintah Desa Bokor",
+      "lat": -8.0167,
+      "lng": 112.8167,
+      "type": "kantor",
+      "subtype": "Kantor Desa",
+      "icon": "🏛️",
+      "color": "#376200",
+      "bg": "#ecffd5",
+      "img": "assets/images/hero3.webp",
+      "gmaps": ""
+    },
+    {
+      "id": "tk1",
+      "name": "TK Pertiwi Bokor",
+      "person": "Taman Kanak-Kanak",
+      "lat": -8.0148,
+      "lng": 112.8175,
+      "type": "sekolah",
+      "subtype": "TK",
+      "icon": "🎒",
+      "color": "#f57c00",
+      "bg": "#fff3e0",
+      "img": "",
+      "gmaps": ""
+    },
+    {
+      "id": "sd1",
+      "name": "SDN Bokor 01",
+      "person": "Sekolah Dasar Negeri 01 Bokor",
+      "lat": -8.0183,
+      "lng": 112.8155,
+      "type": "sekolah",
+      "subtype": "SD",
+      "icon": "📚",
+      "color": "#f57c00",
+      "bg": "#fff3e0",
+      "img": "",
+      "gmaps": ""
+    },
+    {
+      "id": "sd2",
+      "name": "SDN Bokor 02",
+      "person": "Sekolah Dasar Negeri 02 Bokor",
+      "lat": -8.0205,
+      "lng": 112.8183,
+      "type": "sekolah",
+      "subtype": "SD",
+      "icon": "📚",
+      "color": "#f57c00",
+      "bg": "#fff3e0",
+      "img": "",
+      "gmaps": ""
+    },
+    {
+      "id": "masjid1",
+      "name": "Masjid Al-Ikhlas",
+      "person": "Masjid Jami' Desa Bokor",
+      "lat": -8.016,
+      "lng": 112.819,
+      "type": "ibadah",
+      "subtype": "Masjid",
+      "icon": "🕌",
+      "color": "#6a1b9a",
+      "bg": "#f3e5f5",
+      "img": "",
+      "gmaps": ""
+    },
+    {
+      "id": "masjid2",
+      "name": "Musholla Nurul Huda",
+      "person": "Tempat Ibadah Dusun 2",
+      "lat": -8.0195,
+      "lng": 112.8148,
+      "type": "ibadah",
+      "subtype": "Musholla",
+      "icon": "🕌",
+      "color": "#6a1b9a",
+      "bg": "#f3e5f5",
+      "img": "",
+      "gmaps": ""
+    },
+    {
+      "id": "pustu1",
+      "name": "Pustu Desa Bokor",
+      "person": "Puskesmas Pembantu Kesehatan",
+      "lat": -8.017,
+      "lng": 112.814,
+      "type": "kesehatan",
+      "subtype": "Pustu",
+      "icon": "🏥",
+      "color": "#c62828",
+      "bg": "#ffebee",
+      "img": "",
+      "gmaps": ""
+    },
+    {
+      "id": "lumbung1",
+      "name": "Lumbung Pangan Desa Bokor",
+      "person": "Fasilitas penyimpanan dan pengelolaan pangan milik Desa Bokor.",
+      "lat": -8.0175,
+      "lng": 112.818,
+      "type": "lumbung",
+      "subtype": "Lumbung Desa",
+      "icon": "🌾",
+      "color": "#d97706",
+      "bg": "#fef3c7",
+      "img": "",
+      "gmaps": ""
+    },
+    {
+      "id": "makam1",
+      "name": "TPU Timur Desa Bokor",
+      "person": "Tempat Pemakaman Umum Wilayah Timur",
+      "lat": -8.0182,
+      "lng": 112.813,
+      "type": "pemakaman",
+      "subtype": "Pemakaman",
+      "icon": "🪦",
+      "color": "#4b5563",
+      "bg": "#f3f4f6",
+      "img": "",
+      "gmaps": ""
+    },
+    {
+      "id": "makam2",
+      "name": "TPU Barat Desa Bokor",
+      "person": "Tempat Pemakaman Umum Wilayah Barat",
+      "lat": -8.015,
+      "lng": 112.808,
+      "type": "pemakaman",
+      "subtype": "Pemakaman",
+      "icon": "🪦",
+      "color": "#4b5563",
+      "bg": "#f3f4f6",
+      "img": "",
+      "gmaps": ""
+    }
+  ],
+  "admin": {
+    "email": "admin@desaborkor.id",
+    "password": "bokor2024"
+  }
+}
