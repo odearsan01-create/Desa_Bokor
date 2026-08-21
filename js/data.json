@@ -250,13 +250,13 @@
   },
   "kontak": {
     "alamat": "Jl. Raya Bokor No. 140, Desa Bokor, Kec. Tumpang, Kab. Malang",
-    "telepon": "(0341) 787495",
+    "telepon": "085102322748",
     "email": "",
     "kecamatan": "Kecamatan Tumpang",
     "kabupaten": "Kabupaten Malang",
     "jamOperasional": {
       "senin_jumat": "08.00 - 15.00 WIB",
-      "sabtu": "08.00 - 12.00 WIB",
+      "sabtu": "Tutup",
       "minggu": "Tutup"
     },
     "koordinatKantor": {
