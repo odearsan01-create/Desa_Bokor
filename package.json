@@ -1,0 +1,15 @@
+{
+  "name": "desa-bokor",
+  "version": "1.0.0",
+  "description": "Website Resmi Desa Bokor - Kec. Tumpang, Kab. Malang",
+  "main": "dev-server.js",
+  "scripts": {
+    "start": "node dev-server.js"
+  },
+  "keywords": [
+    "desa-bokor",
+    "website-desa"
+  ],
+  "author": "Pemerintah Desa Bokor",
+  "license": "ISC"
+}

@@ -942,10 +942,6 @@ function renderFooter() {
             <span class="footer-contact-text">${k.telepon}</span>
           </div>
           <div class="footer-contact-item">
-            <span class="footer-contact-icon">📧</span>
-            <span class="footer-contact-text">${k.email}</span>
-          </div>
-          <div class="footer-contact-item">
             <span class="footer-contact-icon">🕐</span>
             <span class="footer-contact-text">Senin – Jumat: ${k.jamOperasional.senin_jumat}</span>
           </div>
@@ -2051,13 +2047,6 @@ function renderKontak() {
                   </div>
                 </div>
                 <div class="contact-item">
-                  <div class="contact-icon">📧</div>
-                  <div class="contact-detail">
-                    <strong>Email</strong>
-                    <span>${k.email}</span>
-                  </div>
-                </div>
-                <div class="contact-item">
                   <div class="contact-icon">🗺️</div>
                   <div class="contact-detail">
                     <strong>Kecamatan / Kabupaten</strong>
@@ -2107,14 +2096,9 @@ function renderKontak() {
                     <input class="form-input" type="text" id="nama" placeholder="Masukkan nama Anda" required>
                   </div>
                   <div class="form-group">
-                    <label class="form-label" for="nik">NIK / No. HP <span>*</span></label>
-                    <input class="form-input" type="text" id="nik" placeholder="No. identitas atau HP" required>
+                    <label class="form-label" for="nik">No. HP / WhatsApp <span>*</span></label>
+                    <input class="form-input" type="text" id="nik" placeholder="Masukkan nomor HP/WA Anda" required>
                   </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="email">Alamat Email</label>
-                  <input class="form-input" type="email" id="email" placeholder="email@contoh.com">
                 </div>
 
                 <div class="form-group">
@@ -2185,16 +2169,31 @@ function renderKontak() {
 function submitForm(e) {
   e.preventDefault();
   const btn = e.target.querySelector('.btn-submit');
-  btn.textContent = '⏳ Mengirim...';
+  btn.textContent = '⏳ Mengalihkan...';
   btn.disabled = true;
 
+  const nama = document.getElementById('nama').value;
+  const nik = document.getElementById('nik').value;
+  const perihalSelect = document.getElementById('perihal');
+  const perihalText = perihalSelect.options[perihalSelect.selectedIndex].text;
+  const pesan = document.getElementById('pesan').value;
+
+  const k = BOKOR_STATE.kontak;
+  let cleanPhone = (k.telepon || '').replace(/[^0-9]/g, '');
+  if (cleanPhone.startsWith('0')) {
+    cleanPhone = '62' + cleanPhone.substring(1);
+  }
+
+  const textMessage = `Halo Admin Desa Bokor,\n\nSaya ingin mengirimkan pesan:\n- *Nama Lengkap:* ${nama}\n- *No. HP / WhatsApp:* ${nik}\n- *Perihal:* ${perihalText}\n- *Isi Pesan:* ${pesan}`;
+  const url = `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encodeURIComponent(textMessage)}`;
+
   setTimeout(() => {
+    window.open(url, '_blank');
     document.getElementById('contact-form').reset();
-    document.getElementById('form-success').style.display = 'block';
     btn.textContent = '📨 Kirim Pesan';
     btn.disabled = false;
-    showToast('✅ Pesan berhasil dikirim!');
-  }, 1500);
+    showToast('✉️ Berhasil diarahkan ke WhatsApp Desa Bokor!');
+  }, 1000);
 }
 
 // =========================================
@@ -3600,14 +3599,10 @@ function renderAdminKontak() {
           <input type="text" class="admin-input" id="k-alamat" value="${k.alamat}" required>
         </div>
 
-        <div class="admin-grid-3">
+        <div class="admin-grid-2">
           <div class="admin-form-group">
-            <label class="admin-label">No. Telepon Desa</label>
+            <label class="admin-label">No. HP / WhatsApp Desa</label>
             <input type="text" class="admin-input" id="k-telp" value="${k.telepon}" required>
-          </div>
-          <div class="admin-form-group">
-            <label class="admin-label">Email Resmi Desa</label>
-            <input type="email" class="admin-input" id="k-email" value="${k.email}" required>
           </div>
           <div class="admin-form-group">
             <label class="admin-label">Nama Kecamatan</label>
@@ -3683,7 +3678,7 @@ function saveAdminKontak(e) {
   e.preventDefault();
   BOKOR_STATE.kontak.alamat = document.getElementById('k-alamat').value;
   BOKOR_STATE.kontak.telepon = document.getElementById('k-telp').value;
-  BOKOR_STATE.kontak.email = document.getElementById('k-email').value;
+  BOKOR_STATE.kontak.email = '';
   BOKOR_STATE.kontak.kecamatan = document.getElementById('k-kec').value;
 
   BOKOR_STATE.kontak.jamOperasional.senin_jumat = document.getElementById('k-jam-sf').value;
